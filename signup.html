@@ -6,6 +6,60 @@
     <title>KERALA TOURISM</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="css/signup.css">
+    <script>
+      function validatePassword(password) {
+          
+          if (password.length === 0) {
+              document.getElementById("msg").innerHTML = "";
+              return;
+          }
+          var matchedCase = new Array();
+          matchedCase.push("[$@$!%*#?&]");
+          matchedCase.push("[A-Z]");     
+          matchedCase.push("[0-9]");     
+          matchedCase.push("[a-z]");    
+
+          var ctr = 0;
+          for (var i = 0; i < matchedCase.length; i++) {
+              if (new RegExp(matchedCase[i]).test(password)) {
+                  ctr++;
+              }
+          }
+          var color = "";
+          var strength = "";
+          switch (ctr) {
+              case 0:
+              case 1:
+              case 2:
+                  strength = "Very Weak";
+                  color = "red";
+                  break;
+              case 3:
+                  strength = "Medium";
+                  color = "orange";
+                  break;
+              case 4:
+                  strength = "Strong";
+                  color = "green";
+                  break;
+          }
+          document.getElementById("msg").innerHTML = strength;
+          document.getElementById("msg").style.color = color;
+      }
+  </script>
+  
+<script>
+    function validatephonenumber(phonenumber){
+        var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        if(phonenumber.value.match(phoneno)){
+            return true;
+        }
+        else{
+            alert("Phone number should be in XXX-XXX-XXXX, XXX.XXX.XXXX, XXX XXX XXXX formats only");
+            return false;
+        }
+    } 
+    </script>
   
 </head>
 
@@ -13,7 +67,7 @@
 
     <!-- header begins -->
     <header>    
-        <img src="images/small.png" alt="logo">
+        <img src="images/logo2.png" alt="logo">
 
         <div class="head-tag">
             <a href="index.html">HOME</a>
@@ -25,38 +79,33 @@
     <!-- end of header -->
     <!-- signup form begins -->
     <form action="#" class="login-credentials">
-        <h2>Sign up</h2>
-        <br>
-        <div class="login-cont">
-            <label>Enter your email</label>
-            <br>
-            <input type="text">
-        </div>
-        <br>
-        <div class="login-cont">
-            <label>Enter a username</label>
-            <br>
-            <input type="text">
-        </div>
-        <br>
-        <div class="login-cont">
-            <label>Create a password</label>
-            <br>
-            <input type="password">
-        </div>
-        <br>
-        <div>
-            <label>Re-enter the password</label>
-            <br>
-            <input type="password">
-        </div>
-        <br>
-        <div>
-           <button id="submit">Sign up</button>
-        </div>
-    </form>
-    <!-- signup form ends -->
-
-
+      <h2>Sign up</h2>
+      <br>
+      <div class="login-cont">
+          <input type="email" placeholder="Enter Email Id" required>
+      </div>
+      <br>
+      <div class="login-cont">
+         <input type="text" placeholder="Enter phone number" required id="phonenumber">
+      </div>
+      <br>
+      <div class="login-cont">
+        <input type="text" placeholder="Enter a username" required>
+      </div>
+      <br>
+      <div class="login-cont">
+        <input type="password" placeholder="Enter a password" required minlength="8" maxlength="15" id="pwd"onkeyup="validatePassword(this.value);"/><span id="msg"></span>
+      </div>
+      <br>
+      <div>
+        <input type="password" placeholder="Re-enter the password" required minlength="8" maxlength="15" id="repwd"> 
+      </div>
+      <br>
+      <div>
+         <button id="submit">Sign up</button>
+      </div>
+  </form>
+  <script src="form.js"></script>
+ <!-- signup form ends -->
 </body>
 </html>

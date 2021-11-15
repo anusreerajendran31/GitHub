@@ -34,18 +34,16 @@ header{
     transition: 0.5s ease-in-out;
 }
 /* header ends */
-
 /* login form begins */
 .login-credentials{
     float: right;
     border: 2px solid whitesmoke;
     background-color: beige;
     height: 28em;
-    margin-top: 5%;
+    margin-top: 65px;
     margin-right: 42%;
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 40px;
+
 }
 
 .login-credentials h2{

@@ -40,7 +40,7 @@ header{
     float: right;
     border: 2px solid whitesmoke;
     background-color: beige;
-    height: 25em;
+    height: 20em;
     margin-top: 7%;
     margin-right: 42%;
     padding: 30px;
@@ -57,3 +57,11 @@ header{
     border:1px solid green;
 }
 /* login form ends */
+
+input:invalid{
+    border: 2px solid red;
+}
+
+input:valid{
+    border: 2px solid green;
+}
